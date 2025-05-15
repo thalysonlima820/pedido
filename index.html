@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Pedido Especial</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background-color: #f0f8ff;
+    }
+    h1 {
+      margin-bottom: 40px;
+    }
+    .botoes {
+      position: relative;
+      display: inline-block;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      margin: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    #sim {
+      background-color: #4CAF50;
+      color: white;
+    }
+    #nao {
+      background-color: #f44336;
+      color: white;
+      position: absolute;
+    }
+    #comemoracao {
+      display: none;
+      font-size: 24px;
+      margin-top: 30px;
+      color: #ff69b4;
+      animation: estourar 0.5s alternate infinite;
+    }
+    @keyframes estourar {
+      from { transform: scale(1); }
+      to { transform: scale(1.2); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Você vai me da o cu?</h1>
+
+  <div class="botoes">
+    <button id="sim">Sim</button>
+    <button id="nao">Não</button>
+  </div>
+
+  <div id="comemoracao">🎉 Ebaaa! Sabia que você ia dizer sim! 🎉</div>
+
+  <script>
+    const sim = document.getElementById("sim");
+    const nao = document.getElementById("nao");
+    const comemoracao = document.getElementById("comemoracao");
+
+    sim.addEventListener("click", () => {
+      comemoracao.style.display = "block";
+    });
+
+    nao.addEventListener("mouseover", () => {
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 100);
+      nao.style.left = `${x}px`;
+      nao.style.top = `${y}px`;
+    });
+  </script>
+
+</body>
+</html>
