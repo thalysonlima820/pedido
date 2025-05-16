@@ -9,6 +9,7 @@
       text-align: center;
       margin-top: 100px;
       background-color: #f0f8ff;
+      overflow: hidden;
     }
     h1 {
       margin-bottom: 40px;
@@ -69,10 +70,14 @@
     });
 
     nao.addEventListener("mouseover", () => {
-      const x = Math.random() * (window.innerWidth - 100);
-      const y = Math.random() * (window.innerHeight - 100);
-      nao.style.left = `${x}px`;
-      nao.style.top = `${y}px`;
+      const maxX = window.innerWidth - nao.offsetWidth;
+      const maxY = window.innerHeight - nao.offsetHeight;
+
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+
+      nao.style.left = `${randomX}px`;
+      nao.style.top = `${randomY}px`;
     });
   </script>
 
