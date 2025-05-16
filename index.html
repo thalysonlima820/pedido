@@ -51,7 +51,7 @@
 </head>
 <body>
 
-  <h1>Você vai me da o cu?</h1>
+  <h1>Você vai me da o Cu?</h1>
 
   <div class="botoes">
     <button id="sim">Sim</button>
@@ -60,26 +60,29 @@
 
   <div id="comemoracao">🎉 Ebaaa! Sabia que você ia dizer sim! 🎉</div>
 
-  <script>
-    const sim = document.getElementById("sim");
-    const nao = document.getElementById("nao");
-    const comemoracao = document.getElementById("comemoracao");
+<script>
+  const sim = document.getElementById("sim");
+  const nao = document.getElementById("nao");
+  const comemoracao = document.getElementById("comemoracao");
 
-    sim.addEventListener("click", () => {
-      comemoracao.style.display = "block";
-    });
+  sim.addEventListener("click", () => {
+    comemoracao.style.display = "block";
+  });
 
-    nao.addEventListener("mouseover", () => {
-      const maxX = window.innerWidth - nao.offsetWidth;
-      const maxY = window.innerHeight - nao.offsetHeight;
+  nao.addEventListener("mouseover", () => {
+    // Garante que o botão fique dentro da área visível da janela
+    const maxX = window.innerWidth - nao.offsetWidth - 20; // margem de segurança
+    const maxY = window.innerHeight - nao.offsetHeight - 20;
 
-      const randomX = Math.floor(Math.random() * maxX);
-      const randomY = Math.floor(Math.random() * maxY);
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
 
-      nao.style.left = `${randomX}px`;
-      nao.style.top = `${randomY}px`;
-    });
-  </script>
+    nao.style.position = "fixed"; // Use fixed para manter na tela inteira
+    nao.style.left = `${randomX}px`;
+    nao.style.top = `${randomY}px`;
+  });
+</script>
+
 
 </body>
 </html>
